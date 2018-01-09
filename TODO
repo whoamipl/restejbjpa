@@ -1,0 +1,11 @@
+1. Relacje dwukierunkowe
+    @OneToMany/ManyToOne - bidirectional
+    metoda "uaktualniająca model obiektowy"
+    (sprawdzić jak działa)
+
+2. Filter/Search - zaawansowyany (wiele parametrów do wyszukania)
+- POST           -  > KLASA
+- GET z JSONem   -  > JSON API
+- GET klaszyczny
+
+Java JSON API READER 'ORACLE' JsonReader JsonParser

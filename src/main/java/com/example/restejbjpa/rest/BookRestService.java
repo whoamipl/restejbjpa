@@ -19,6 +19,7 @@ import javax.ws.rs.core.Response;
 
 import com.example.restejbjpa.domain.Book;
 import com.example.restejbjpa.domain.Car;
+import com.example.restejbjpa.domain.Computer;
 import com.example.restejbjpa.domain.Person;
 import com.example.restejbjpa.service.BookManager;
 import com.example.restejbjpa.service.PersonManager;
@@ -43,25 +44,40 @@ public class BookRestService {
 		Car c1 = new Car("Fiat", "Punto");
 		Car c2 = new Car("Ford", "Fiesta");
 
+
 		List<Car> cars = new ArrayList<>();
 		cars.add(c1);
 		cars.add(c2);
 		
-		p.addCars(cars);		
+		//p.setCars(cars);
+		p.addCars(cars);
 		pm.addPerson(p);
-		
+
+		System.out.println("!!!!!!!!!!!!!!!" + pm.getPerson(p.getId()).getCars().size());
 	
 		System.out.println("Id c: " + c1.getId());
 		
 		System.out.println("\n\n@@@ Size of owners: " + c1.getOwners().size());
 		
-		//Car retrieved = pm.getCar(c1.getId());
+		//nCar retrieved = pm.getCar(c1.getId());
 		//Car retrieved = pm.updateCar(c1);
 		
 		
 		//System.out.println("\n\n@@@ Size of owners: " + retrieved.getOwners().size());
 
 		return "ManyToMany";
+	}
+
+	@GET
+	@Path("/manytoone")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String testMyOwnRelations() {
+		Person p = new Person("Bill", "Gates", 1970);
+		Computer c1 = new Computer("Xdddd", "Titan X", "Ryzne 8000");
+		Computer l1 = new Computer("DELLe6410", "Intel GMA", "Intel i5");
+
+
+		return "OneToMany/ManyToOne";
 	}
 	
 		
